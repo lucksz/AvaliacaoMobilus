@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Avaliação Mobilus</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="!show" style="width: 100%;height: 100% ;align-items: center; text-align: center; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center;">
+    <div>
+      <ion-label class="primary_label"><b>App de consultas de Covid-19</b></ion-label>
+    </div>
+    <br>
+    <button mat-raised-button color="primary" style="width: 70%; height: 50px;" (click)="show = !show">Realizar Consulta</button>
+  </div>
+  <div *ngIf="show">
+    <div style="width: 100%; align-items: center; text-align: center; margin-top: 20px; margin-bottom: 20px;">
+      <ion-label class="num_mortes">Casos confirmados de COVID-19 nos últimos 6 meses:</ion-label>
+      <br>
+      <ion-label class="label_deaths"><b>{{casosTotais}}</b></ion-label>
+    </div>
+    <div class="div_row">
+      <div class="div_col">
+        <ion-label class="label_deaths">
+          <b>Casos da penúltima semana</b>
+        </ion-label>
+      </div>
+      <div class="div_col">
+        <ion-label class="label_deaths">
+          <b>Casos da última semana</b>
+        </ion-label>
+      </div>
+    </div>
+    <div class="div_row">
+      <div class="div_col">
+        <div class="div_inner_row" *ngFor="let dado of dadosMortesSem1 | slice:0:7">
+          <div class="div_inner_col">
+            <ion-label class="label_date">Dados do dia {{dado.Date}}</ion-label>
+            <br>
+            <ion-label class="num_mortes">Número de mortes:</ion-label>
+            <br>
+            <ion-label class="label_deaths"><b>{{dado.mortesDiarias}}</b></ion-label>
+          </div>
+        </div>
+        <div style="text-align: center;">
+          <ion-label class="num_mortes">Média móvel:</ion-label>
+          <br>
+          <p class="label_media"><b>{{mediaMovel}}</b></p>
+        </div>
+      </div>
+      <div class="div_col">
+        <div class="div_inner_row" *ngFor="let dado2 of dadosMortesSem2 | slice:0:7">
+          <div class="div_inner_col">
+            <ion-label class="label_date">Dados do dia {{dado2.Date}}</ion-label>
+            <br>
+            <ion-label class="num_mortes">Número de mortes:</ion-label>
+            <br>
+            <ion-label class="label_deaths"><b>{{dado2.mortesDiarias}}</b></ion-label>
+          </div>
+        </div>
+        <div style="text-align: center; align-self: center; align-content: center; align-items: center;">
+          <ion-label class="num_mortes">Média móvel:</ion-label>
+          <br>
+          <p class="label_media"><b>{{mediaMovel2}}</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="div_row">
+      <div style="text-align: center; width: 100%; margin-top: 20px;">
+        <ion-label class="label_deaths">
+          Maiores valores do último mês:
+        </ion-label>
+      </div>
+    </div>
+    <div class="div_row">
+      <div class="div_col">
+        <ion-label class="num_mortes">
+          De mortes:
+        </ion-label>
+        <br>
+        <ion-label class="label_deaths">
+         <b>{{maioresDados.numMortes}}</b> 
+        </ion-label>
+        <br>
+        <ion-label class="label_date">
+          na data: {{maioresDados.dataMortes}}
+        </ion-label>
+      </div>
+      <div class="div_col">
+        <ion-label class="num_mortes">
+          De casos:
+        </ion-label>
+        <br>
+        <ion-label class="label_deaths">
+          <b>{{maioresDados.numCasos}}</b>
+        </ion-label>
+        <br>
+        <ion-label class="label_date">
+          na data: {{maioresDados.dataCasos}}
+        </ion-label>
+      </div>
+    </div>
+    <div class="div_row">
+      <div style="text-align: center; width: 100%; margin-top: 20px; margin-bottom: 20px;">
+        <ion-label class="num_mortes">
+          Consulta feita no dia: {{maioresDados.dataConsulta}}
+        </ion-label>
+        <br>
+        <ion-label class="num_mortes">E na latitude {{coordenada.coords.latitude}} e longitude {{coordenada.coords.longitude}}</ion-label>
+      </div>
+    </div>
+  </div>
+</ion-content>

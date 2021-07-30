@@ -1,0 +1,48 @@
+.div_row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 10px;
+}
+.div_col {
+    flex-direction: column;
+    width: 50%;
+}
+.div_inner_row{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.div_inner_col {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 26px;
+}
+.label_deaths {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.label_date {
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    color:gray;
+}
+.num_mortes {
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.primary_label {
+    font-size: 34px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+}
+.label_media {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+}
